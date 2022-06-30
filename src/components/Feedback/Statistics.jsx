@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+import s from './Feedback.module.css';
+
 export default function Statistics({
   good,
   neutral,
@@ -6,7 +9,7 @@ export default function Statistics({
   positivePercentage,
 }) {
   return (
-    <div>
+    <div className={s.box}>
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
@@ -15,3 +18,11 @@ export default function Statistics({
     </div>
   );
 }
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};
